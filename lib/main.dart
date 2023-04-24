@@ -19,6 +19,9 @@ void main() {
 
 
       child: MaterialApp(
+        theme: ThemeData(
+          fontFamily: 'ptsans'
+        ),
         debugShowCheckedModeBanner: false,
         initialRoute: "first",
         routes: {

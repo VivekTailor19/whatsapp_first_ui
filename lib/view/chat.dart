@@ -1,7 +1,8 @@
-import 'dart:math';
+
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:whatsapp_first_ui/provider/whatsapp_provider.dart';
 
 class Chat_Screen extends StatefulWidget {
@@ -63,25 +64,49 @@ class _Chat_ScreenState extends State<Chat_Screen> {
         onTap: () {
           showDialog(context: context, builder: (context) {
             return AlertDialog(
-              content: Column(mainAxisSize: MainAxisSize.min,
-                children: [
-                  Image.network("${wpproviderT!.chatlist[index].img}"),
-                  Container(alignment: Alignment.center,
-                    height: 25,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      crossAxisAlignment: CrossAxisAlignment.center,
+              content: Container(
+                height: 225,width: 200,
+                child: Column(mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Container(
+                      height: 200,width: 200,
 
-                      children: [
+                    alignment: Alignment.topLeft,
+                    decoration: BoxDecoration(color: Colors.black12,image: DecorationImage(image: AssetImage("${wpproviderT!.chatlist[index].img}",) )),
+                      child: Text("${wpproviderT!.chatlist[index].name}",textAlign: TextAlign.justify,),
 
-                      Icon(Icons.chat,color: Colors.teal.shade400,),
-                      Icon(Icons.call,color: Colors.teal.shade400,),
-                      Icon(Icons.videocam_rounded,color: Colors.teal.shade400,),
-                      Icon(Icons.info_outline,color: Colors.teal.shade400,),
-                    ],),
-                  )
+                    ),
+                    Container(
+                      alignment: Alignment.center,
+                      height: 25,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        crossAxisAlignment: CrossAxisAlignment.center,
 
-                ],
+                        children: [
+
+                        IconButton(icon:Icon(Icons.chat),color: Colors.teal.shade400,onPressed: ()async {
+                          Uri message = Uri(
+                              scheme: 'sms',
+                              path: '98945 12398',
+                              queryParameters: {'body':' Testing : જો બકા તકલીફ તો રેહવાની જ '}
+                          );
+                          await launchUrl(message);
+                        } ,),
+
+                        IconButton(icon:Icon(Icons.call),color: Colors.teal.shade400,onPressed: () async {
+                          String number = "tel: 98945 12398";
+                          await launchUrl(Uri.parse(number));
+                        },),
+
+                        IconButton(icon:Icon(Icons.videocam_rounded),color: Colors.teal.shade400,onPressed: (){},),
+                        IconButton(icon:Icon(Icons.info_outline_rounded),color: Colors.teal.shade400,onPressed: (){},),
+
+                      ],),
+                    )
+
+                  ],
+                ),
               ),
             );
           },);
@@ -91,9 +116,9 @@ class _Chat_ScreenState extends State<Chat_Screen> {
           backgroundImage: NetworkImage("${wpproviderT!.chatlist[index].img}"),
         ),
       ),
-      title: Text("${wpproviderT!.chatlist[index].name}",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15),),
-      subtitle: Text("${wpproviderT!.chatlist[index].message}",style: TextStyle(fontSize: 11),),
-      trailing: Text("${wpproviderT!.chatlist[index].time}",style: TextStyle(color: Colors.black26),),
+      title: Text("${wpproviderT!.chatlist[index].name}",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 16),),
+      subtitle: Text("${wpproviderT!.chatlist[index].message}",style: TextStyle(fontSize: 15,overflow: TextOverflow.ellipsis,),),
+      trailing: Text("${wpproviderT!.chatlist[index].time}",style: TextStyle(color: Colors.black26,fontSize: 16),),
     );
   }
 
