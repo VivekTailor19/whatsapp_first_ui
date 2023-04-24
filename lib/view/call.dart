@@ -29,6 +29,15 @@ class _Calls_ScreenState extends State<Calls_Screen> {
     wpproviderF = Provider.of<WhatsAppProvider>(context,listen:false);
 
     return Scaffold(
+
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+
+        },
+        backgroundColor: Colors.teal.shade500,
+        child: Icon(Icons.add_ic_call_rounded),
+      ),
+
       body: Column(
         //crossAxisAlignment: CrossAxisAlignment.start,
         children: [

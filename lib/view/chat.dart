@@ -44,12 +44,7 @@ class _Chat_ScreenState extends State<Chat_Screen> {
 
             child: ListView.builder(
               scrollDirection: Axis.vertical,
-              itemBuilder: (context, index) => Chattile(
-                  name: wpproviderT!.chatlist[index].name,
-                  photo: wpproviderT!.chatlist[index].img,
-                  time: wpproviderT!.chatlist[index].time,
-                  message: wpproviderT!.chatlist[index].message,
-              ),
+              itemBuilder: (context, index) => Chattile(index),
             itemCount: wpproviderT!.chatlist.length,
             ),
           ),
@@ -60,16 +55,45 @@ class _Chat_ScreenState extends State<Chat_Screen> {
     );
   }
 
-  Widget Chattile({String? name, String?message, String? time, String? photo})
+  Widget Chattile(int index)
   {
     return ListTile(
-      leading: CircleAvatar(
-        radius: 22,
-        backgroundImage: NetworkImage("$photo"),
+
+      leading: InkWell(
+        onTap: () {
+          showDialog(context: context, builder: (context) {
+            return AlertDialog(
+              content: Column(mainAxisSize: MainAxisSize.min,
+                children: [
+                  Image.network("${wpproviderT!.chatlist[index].img}"),
+                  Container(alignment: Alignment.center,
+                    height: 25,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+
+                      children: [
+
+                      Icon(Icons.chat,color: Colors.teal.shade400,),
+                      Icon(Icons.call,color: Colors.teal.shade400,),
+                      Icon(Icons.videocam_rounded,color: Colors.teal.shade400,),
+                      Icon(Icons.info_outline,color: Colors.teal.shade400,),
+                    ],),
+                  )
+
+                ],
+              ),
+            );
+          },);
+        },
+        child: CircleAvatar(
+          radius: 22,
+          backgroundImage: NetworkImage("${wpproviderT!.chatlist[index].img}"),
+        ),
       ),
-      title: Text("$name",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15),),
-      subtitle: Text("$message",style: TextStyle(fontSize: 11),),
-      trailing: Text("$time",style: TextStyle(color: Colors.black26),),
+      title: Text("${wpproviderT!.chatlist[index].name}",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15),),
+      subtitle: Text("${wpproviderT!.chatlist[index].message}",style: TextStyle(fontSize: 11),),
+      trailing: Text("${wpproviderT!.chatlist[index].time}",style: TextStyle(color: Colors.black26),),
     );
   }
 
