@@ -25,6 +25,7 @@ class _Status_ScreenState extends State<Status_Screen> {
         child: Icon(Icons.photo_camera),
       ),
       body: Stack(
+        alignment: Alignment(0.88,0.67),
         children: [
           Column(
             children: [
@@ -60,6 +61,17 @@ class _Status_ScreenState extends State<Status_Screen> {
               ),
             ],
           ),
+          Container(height: 50,width: 50,
+          decoration: BoxDecoration(
+            color: Colors.blueGrey.shade50,
+            shape: BoxShape.circle,
+            boxShadow: [
+              BoxShadow(color: Colors.blueGrey.shade100,blurRadius: 20)
+            ]
+          ),
+            child: Icon(Icons.edit,color: Colors.black54,),
+          ),
+
         ],
       ),
     );
@@ -69,7 +81,7 @@ class _Status_ScreenState extends State<Status_Screen> {
     return ListTile(
       leading: CircleAvatar(
         radius: 22,
-        backgroundImage: NetworkImage("$photo"),
+        backgroundImage: AssetImage("$photo"),
       ),
       title: Text(
         "$name",
@@ -79,6 +91,7 @@ class _Status_ScreenState extends State<Status_Screen> {
         "$time",
         style: TextStyle(color: Colors.black26),
       ),
+
     );
   }
 }

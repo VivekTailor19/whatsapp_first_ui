@@ -20,7 +20,7 @@ class _FirstScreenState extends State<FirstScreen> {
         length: 4,
         child: Scaffold(
           appBar: AppBar(
-            backgroundColor: Colors.teal,
+            backgroundColor: Color(0xff075E55),
             title: Text("WhatsApp"),
             actions: [
               Icon(Icons.camera_alt_outlined),
