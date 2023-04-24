@@ -30,15 +30,15 @@ class _Status_ScreenState extends State<Status_Screen> {
             children: [
               ListTile(
                 leading: Stack(
-                  alignment: Alignment(1.4,1.1),
+                  alignment: Alignment(1.7,1.1),
                   children: [
-                  CircleAvatar(backgroundImage: AssetImage('assets/images/profile.png'),radius: 30,),
+                  CircleAvatar(backgroundImage: AssetImage('assets/images/profile.png'),radius: 25,),
                   Container(
                     alignment: Alignment.center,
                     height: 27,width: 27,
                     decoration: BoxDecoration(color: Colors.teal,
                       shape: BoxShape.circle,
-                      border: Border.all(color: Colors.white,width: 3)
+                      border: Border.all(color: Colors.white,width: 2)
                     ),
                     child: Icon(Icons.add,color: Colors.white,size: 20,),
                   )
