@@ -20,10 +20,13 @@ void main() {
 
       child: MaterialApp(
         theme: ThemeData(
-          fontFamily: 'ptsans'
+          fontFamily: 'ptsans',
+          floatingActionButtonTheme: FloatingActionButtonThemeData(backgroundColor: Color(0xff2CB192)
+          )
+
         ),
         debugShowCheckedModeBanner: false,
-        initialRoute: "first",
+       // initialRoute: "first",
         routes: {
           "/":(context) => Splash_Screen(),
           "first":(context) => FirstScreen(),

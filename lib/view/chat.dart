@@ -29,7 +29,7 @@ class _Chat_ScreenState extends State<Chat_Screen> {
         onPressed: () {
 
         },
-        backgroundColor: Colors.teal.shade500,
+        //backgroundColor: Colors.teal.shade500,
         child: Icon(Icons.chat),
       ),
 
@@ -70,10 +70,13 @@ class _Chat_ScreenState extends State<Chat_Screen> {
                   children: [
                     Container(
                       height: 200,width: 200,
-
                     alignment: Alignment.topLeft,
-                    decoration: BoxDecoration(color: Colors.black12,image: DecorationImage(image: AssetImage("${wpproviderT!.chatlist[index].img}",) )),
-                      child: Text("${wpproviderT!.chatlist[index].name}",textAlign: TextAlign.justify,),
+                    decoration: BoxDecoration(
+                        image: DecorationImage(image: NetworkImage("${wpproviderT!.chatlist[index].img}",),fit: BoxFit.cover)
+                    ),
+                      child: Container(width: double.infinity,
+                        color: Colors.black12,
+                          child: Text("${wpproviderT!.chatlist[index].name}",style: TextStyle(color: Colors.white,fontSize: 25,overflow: TextOverflow.ellipsis),)),
 
                     ),
                     Container(
@@ -84,6 +87,7 @@ class _Chat_ScreenState extends State<Chat_Screen> {
                         crossAxisAlignment: CrossAxisAlignment.center,
 
                         children: [
+
 
                         IconButton(icon:Icon(Icons.chat),color: Colors.teal.shade400,onPressed: ()async {
                           Uri message = Uri(

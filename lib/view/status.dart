@@ -21,7 +21,7 @@ class _Status_ScreenState extends State<Status_Screen> {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
-        backgroundColor: Colors.teal.shade500,
+        //backgroundColor: Colors.teal.shade500,
         child: Icon(Icons.photo_camera),
       ),
       body: Stack(
@@ -45,7 +45,7 @@ class _Status_ScreenState extends State<Status_Screen> {
                   )
 
                 ],),
-                title: Text("My status",style: TextStyle(fontWeight: FontWeight.bold,),),
+                title: Text("દર્શન સાંખટ",style: TextStyle(fontWeight: FontWeight.bold,),),
                 subtitle: Text("Tap to add status update",style: TextStyle(color: Colors.black26),),
               ),
               Expanded(
@@ -81,7 +81,7 @@ class _Status_ScreenState extends State<Status_Screen> {
     return ListTile(
       leading: CircleAvatar(
         radius: 22,
-        backgroundImage: AssetImage("$photo"),
+        backgroundImage: NetworkImage("$photo"),
       ),
       title: Text(
         "$name",

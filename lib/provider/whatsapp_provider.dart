@@ -10,7 +10,7 @@ class WhatsAppProvider extends ChangeNotifier
 {
   List<Chat_Model> chatlist = [
     Chat_Model(name: '10: FLUTTER BATCH',time: '11:55 am',message: '~ Bhavin Ambaliya😎: 🍕🍔🍟🌭🍿🧂🥓🍳',img:'https://cdn.dribbble.com/users/3941980/screenshots/15584126/flutter-3d-logo.png'),
-    Chat_Model(name: 'Hello World',time: '00.00 pm', message: 'BhaskarIndia 💥💥💥💥💥',img: 'https://i.pinimg.com/236x/f4/03/07/f40307b2bc7d13cf675ff2992b61801d.jpg'),
+    Chat_Model(name: 'દર્શન સાંખત',time: '00.00 pm', message: 'BhaskarIndia 💥💥💥💥💥',img: 'https://i.pinimg.com/236x/f4/03/07/f40307b2bc7d13cf675ff2992b61801d.jpg'),
     Chat_Model(name: 'Ankit',time: '12.25 pm',message: 'Today 5pm cricket',img: 'https://w0.peakpx.com/wallpaper/204/318/HD-wallpaper-hacker-ghost-hacker-joker-masked-man.jpg' ),
     Chat_Model(name: 'Amber Patel', time: '08.45 pm',message: 'Tommorrow 5 pm at Kamati Bag play Dandiya',img: 'https://cdn-icons-png.flaticon.com/512/1461/1461086.png'),
     Chat_Model(name: 'Rana Bapu', time: '12.00 pm',message: 'શુભ પ્રભાત મિત્ર 😎', img: 'https://cdn-icons-png.flaticon.com/512/2202/2202090.png'),
@@ -32,7 +32,15 @@ class WhatsAppProvider extends ChangeNotifier
 
 
   List<Status_Model> statuslist = [
-    Status_Model(name: 'Hardik Hadiya',time: '30 minutes ago',img:'assets/images/profile.png'),
+    Status_Model(name: 'Hardik Hadiya',time: '4 seconds ago',img:'https://cdn.dribbble.com/users/3941980/screenshots/15584126/flutter-3d-logo.png'),
+    Status_Model(name: 'Har Diya',time: '23 hours ago',img:'https://w0.peakpx.com/wallpaper/204/318/HD-wallpaper-hacker-ghost-hacker-joker-masked-man.jpg'),
+    Status_Model(name: 'જીગો',time: '1 miniute ago',img:'https://cdn-icons-png.flaticon.com/512/2202/2202090.png'),
+    Status_Model(name: 'એમ્બર પટેલ',time: '12 hours ago',img:'https://i.pinimg.com/236x/f4/03/07/f40307b2bc7d13cf675ff2992b61801d.jpg'),
+    Status_Model(name: 'જય વાવાજોડુ',time: '5 minutes ago',img:'https://cdn.dribbble.com/users/3941980/screenshots/15584126/flutter-3d-logo.png'),
+    Status_Model(name: 'નવરી બજાર',time: '59 minutes ago',img:'https://cdn-icons-png.flaticon.com/512/2202/2202090.png'),
+    Status_Model(name: 'દર્શન કુંભાણી',time: '30 seconds ago',img:'https://w0.peakpx.com/wallpaper/204/318/HD-wallpaper-hacker-ghost-hacker-joker-masked-man.jpg'),
+    Status_Model(name: 'commmand prompt',time: '30 minutes ago',img:'https://cdn.dribbble.com/users/3941980/screenshots/15584126/flutter-3d-logo.png'),
+
   ];
 
   Icon call = Icon(Icons.call,color: Colors.green);
