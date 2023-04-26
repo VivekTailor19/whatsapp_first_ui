@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../model/call_model.dart';
 import '../provider/whatsapp_provider.dart';
 
 
@@ -17,6 +18,34 @@ class Calls_Screen extends StatefulWidget {
 }
 
 class _Calls_ScreenState extends State<Calls_Screen> {
+
+  @override
+  void initState() {
+
+    Icon call = Icon(Icons.call,color: Colors.green,size:15);               //medium
+    Icon video = Icon(Icons.videocam_rounded,color: Colors.green,size:15);  //medium
+    Icon receive = Icon(Icons.call_received_rounded,color: Colors.red,size:15);  //calltype
+    Icon made = Icon(Icons.call_made_rounded,color: Colors.lightGreen,size:15); //calltype
+
+    Provider.of<WhatsAppProvider>(context,listen:false).calllist = [
+
+      Call_Model(name: 'Yash Pratap', calltype: receive, img: "assets/images/profile.png",time: '8 April, 5:30 pm', medium: video,),
+      Call_Model(name: 'Rajvir Rathod', calltype: made, img: "assets/images/profile.png",time: '30 April, 5:30 am', medium: call,),
+      Call_Model(name: 'Jay Rathod', calltype: made, img: "assets/images/profile.png",time: '8 April, 5:30 pm', medium: video,),
+      Call_Model(name: 'Jaya Rathod', calltype: made, img: "assets/images/profile.png",time: '30 April, 5:30 am', medium: video,),
+      Call_Model(name: 'Vikram', calltype:receive, img: "assets/images/profile.png",time: '8 April, 5:30 pm', medium: call,),
+      Call_Model(name: 'JP Edit', calltype: made, img: "assets/images/profile.png",time: '30 April, 5:30 am', medium: video,),
+      Call_Model(name: 'Kavan', calltype: receive, img: "assets/images/profile.png",time: '8 April, 5:30 pm', medium: call,),
+      Call_Model(name: 'Rajvir Rathod', calltype: made, img: "assets/images/profile.png",time: '30 April, 5:30 am', medium: call,),
+      Call_Model(name: 'Yash Pratap', calltype: receive, img: "assets/images/profile.png",time: '8 April, 5:30 pm', medium: video,),
+      Call_Model(name: 'Rajvir Rathod', calltype: made, img: "assets/images/profile.png",time: '30 April, 5:30 am', medium: call,),
+      Call_Model(name: 'Yash Pratap', calltype: made, img: "assets/images/profile.png",time: '8 April, 5:30 pm', medium: video,),
+      Call_Model(name: 'Rajvir Rathod', calltype: made, img: "assets/images/profile.png",time: '30 April, 5:30 am', medium: video,),
+
+    ];
+
+    super.initState();
+  }
 
   WhatsAppProvider? wpproviderT;
   WhatsAppProvider? wpproviderF;
@@ -62,13 +91,7 @@ class _Calls_ScreenState extends State<Calls_Screen> {
             ),
           ),
           Expanded(
-            child: ListView.builder(itemBuilder: (context, index) => Calltile(
-              name: wpproviderT!.calllist[index].name,
-              photo: wpproviderT!.calllist[index].img,
-              time: wpproviderT!.calllist[index].time,
-              calltype: wpproviderT!.calllist[index].calltype,
-              medium: wpproviderT!.calllist[index].medium,
-            ),
+            child: ListView.builder(itemBuilder: (context, index) => Calltile(wpproviderT!.calllist[index], index),
               itemCount: wpproviderT!.calllist.length,
               scrollDirection: Axis.vertical,
             ),
@@ -79,26 +102,26 @@ class _Calls_ScreenState extends State<Calls_Screen> {
     );
   }
 
-  Widget Calltile({String? name, String? time, String? photo,Icon? calltype,Icon? medium}) {
+  Widget Calltile(Call_Model cm,int index) {
     return ListTile(
       leading: CircleAvatar(
         radius: 22,
-        backgroundImage: AssetImage("$photo"),
+        backgroundImage: AssetImage("${cm.img}"),
       ),
       title: Text(
-        "$name",
+        "${cm.name}",
         style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
       ),
       subtitle: Row(mainAxisSize: MainAxisSize.min,
         children: [
-          calltype!,
+          cm.calltype!,
           Text(
-            "$time",
+            "${cm.time})",
             style: TextStyle(color: Colors.black26),
           ),
         ],
       ),
-      trailing: medium!,
+      trailing: cm.medium,
     );
   }
 
