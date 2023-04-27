@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:whatsapp_first_ui/provider/whatsapp_provider.dart';
 import 'package:whatsapp_first_ui/splashscreen/splash.dart';
+import 'package:whatsapp_first_ui/view/community/startcommunity.dart';
 import 'package:whatsapp_first_ui/view/firstscreen.dart';
 
 void main() {
@@ -30,6 +31,7 @@ void main() {
         routes: {
           "/":(context) => Splash_Screen(),
           "first":(context) => FirstScreen(),
+          "startcommunity":(context) => Start_Communuities(),
 
 
 

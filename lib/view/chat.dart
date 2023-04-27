@@ -64,12 +64,13 @@ class _Chat_ScreenState extends State<Chat_Screen> {
         onTap: () {
           showDialog(context: context, builder: (context) {
             return AlertDialog(
+              backgroundColor: Colors.transparent,
               content: Container(
-                height: 225,width: 200,
+                height: 245,width: 200,
                 child: Column(mainAxisSize: MainAxisSize.min,
                   children: [
                     Container(
-                      height: 200,width: 200,
+                      height: 210,width: 200,
                     alignment: Alignment.topLeft,
                     decoration: BoxDecoration(
                         image: DecorationImage(image: NetworkImage("${wpproviderT!.chatlist[index].img}",),fit: BoxFit.cover)
@@ -80,8 +81,9 @@ class _Chat_ScreenState extends State<Chat_Screen> {
 
                     ),
                     Container(
-                      alignment: Alignment.center,
-                      height: 25,
+                      alignment: Alignment.topCenter,
+                      height: 30,
+
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         crossAxisAlignment: CrossAxisAlignment.center,
@@ -89,7 +91,7 @@ class _Chat_ScreenState extends State<Chat_Screen> {
                         children: [
 
 
-                        IconButton(icon:Icon(Icons.chat),color: Colors.teal.shade400,onPressed: ()async {
+                        IconButton(icon:Icon(Icons.chat),color: Colors.white,onPressed: ()async {
                           Uri message = Uri(
                               scheme: 'sms',
                               path: '98945 12398',
@@ -98,13 +100,13 @@ class _Chat_ScreenState extends State<Chat_Screen> {
                           await launchUrl(message);
                         } ,),
 
-                        IconButton(icon:Icon(Icons.call),color: Colors.teal.shade400,onPressed: () async {
+                        IconButton(icon:Icon(Icons.call),color: Colors.white,onPressed: () async {
                           String number = "tel: 98945 12398";
                           await launchUrl(Uri.parse(number));
                         },),
 
-                        IconButton(icon:Icon(Icons.videocam_rounded),color: Colors.teal.shade400,onPressed: (){},),
-                        IconButton(icon:Icon(Icons.info_outline_rounded),color: Colors.teal.shade400,onPressed: (){},),
+                        IconButton(icon:Icon(Icons.videocam_rounded),color: Colors.white,onPressed: (){},),
+                        IconButton(icon:Icon(Icons.info_outline_rounded),color: Colors.white,onPressed: (){},),
 
                       ],),
                     )
