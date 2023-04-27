@@ -18,12 +18,24 @@ class _Splash_ScreenState extends State<Splash_Screen> {
     return SafeArea(
       child: Scaffold(
         body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Image.asset("assets/whatsapp.png",height: 80,width: 80,fit: BoxFit.fill,),
-              //Text("What's App",style: TextStyle(fontSize: 30),),
-            ],
+          child: Padding(
+            padding: const EdgeInsets.all(10),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text("",),
+                Image.asset("assets/whatsapp.png",height: 80,width: 80,fit: BoxFit.fill,),
+                Container(
+                  child: Column(
+                    children: [
+                      Text("from",style: TextStyle(color: Colors.black38),),
+                      Row
+                    ],
+                  ),
+                )
+                //Text("What's App",style: TextStyle(fontSize: 30),),
+              ],
+            ),
           ),
         ),
 
