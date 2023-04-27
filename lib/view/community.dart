@@ -11,6 +11,7 @@ class _Community_ScreenState extends State<Community_Screen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       backgroundColor: Colors.white,
       body: Column(
         children: [

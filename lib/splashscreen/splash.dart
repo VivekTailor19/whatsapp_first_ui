@@ -24,12 +24,20 @@ class _Splash_ScreenState extends State<Splash_Screen> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text("",),
-                Image.asset("assets/whatsapp.png",height: 80,width: 80,fit: BoxFit.fill,),
+                Image.asset("assets/images/whatsapplogo.png",height: 80,width: 80,fit: BoxFit.fill,),
                 Container(
                   child: Column(
+                    mainAxisSize: MainAxisSize.min,
                     children: [
                       Text("from",style: TextStyle(color: Colors.black38),),
-                      Row
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Image.asset("assets/images/meta.png",height: 20,width: 20,fit: BoxFit.fill,),
+                          SizedBox(width: 5),
+                          Text("Meta",style: TextStyle(color: Color(0xffA6F57B),fontSize: 20),)
+                        ],
+                      )
                     ],
                   ),
                 )
